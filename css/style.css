@@ -1,0 +1,49 @@
+/* body {
+    background-color: yellow;
+} */
+
+
+/* p{
+    color: blue;
+    background-color: yellow; 
+}
+
+ h1,h2,p {
+    background-color: DarkCyan;
+} */
+
+/* .code{
+    color: red; 
+     color: #ee3e80; 
+    color:rgb(95, 198, 64);
+} */
+
+
+body {
+    font-family: Georgia, Times, serif;
+}
+
+h1,
+h2 {
+    font-family: Arial, Verdana, sans-serif;
+}
+
+.credits {
+    font-family: "Courier New", Courier,
+        monospace;
+}
+
+.capital {
+    text-transform: uppercase;
+    /* text-align: left */
+
+}
+
+.lowercase {
+    text-transform: capitalize;
+}
+
+.capitalize {
+    text-transform: capitalize;
+    text-decoration: underline;
+}
