@@ -1,0 +1,82 @@
+/* p{
+    line-height: 5.5;
+} */
+
+/* p{
+    word-spacing: 10px;
+}
+
+h1{
+    letter-spacing: 30px;
+} */
+
+
+/* .left{
+    border: 1px solid red;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.center{
+    text-align: center;
+}
+
+.right{
+    text-align: right;
+} */
+
+/* .justify{
+    text-align: justify;
+} */
+
+/* .vertical-align{
+    vertical-align: top;
+} */
+
+/* .background-image{
+    background-image: url('https://images.pexels.com/photos/34236366/pexels-photo-34236366.jpeg');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh; 
+
+} */
+
+/* .intro::first-letter{
+    font-size: 200%;
+    color: red;
+}
+
+.intro::first-line{
+    color: blue;
+} */
+
+
+/* a:link{
+    color: red;
+}
+
+a:visited{
+    color: green;
+}
+
+a:hover{
+    color: blue;
+}  */
+
+
+.box{
+    border: 1px solid red;
+    width: 900px;
+    height: 900px;
+    background-color: aqua;
+}
+p{
+    background-color: yellow;
+    /* padding: 20px;
+    width: 30%;
+    height: 30%; */
+}
+
+
