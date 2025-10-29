@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding:0;
+}
+
+.box{
+    background-color: #3b82f6;
+    color: white;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #000;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* tablet view */
+@media(max-width:1024px){
+    .container{
+        flex-wrap: wrap;
+    }
+    .box{
+        background-color: yellow;
+        color: black;
+        width:100px;
+        height:100px;
+    }
+}
+
+/* mobile view */
+@media(max-width:768px){
+    .container{
+        flex-direction: column;
+    }
+    .box{
+        background-color: red;
+    }
+}
