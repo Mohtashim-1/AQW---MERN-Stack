@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        .navbar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: #333;
+            color: white;
+        }
+        .navbar .brand{
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .nav-links{
+            gap: 20px;
+            display: flex;
+        }
+        .nav-links a{
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+        }
+        .nav-links a:hover{
+            color: #ffd700;
+            cursor: pointer;
+        }
+        .actions{
+            display: flex;
+            gap: 12px;
+        }
+        .btn{
+            background: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+        .btn:hover{
+            color: #fff;
+            background: #000
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <!-- 1st div for brand logo/name -->
+        <div class="brand">
+            My Website
+        </div>
+        <!-- 2nd div for webpages links -->
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <!-- 3rd div for login/signup buttons -->
+
+        <div class="actions">
+            <button class="btn">Login</button>
+            <button class="btn">Signup</button>
+        </div>
+    </nav>
+</body>
+</html>
