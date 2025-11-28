@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM, Events & Async/Await - Learning Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .box {
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            background: #f9f9f9;
+        }
+        .highlight {
+            background: yellow !important;
+            border-color: orange !important;
+        }
+        #userList {
+            list-style: none;
+            padding: 0;
+        }
+        #userList li {
+            padding: 10px;
+            margin: 5px 0;
+            background: #e9ecef;
+            border-radius: 4px;
+        }
+        .loading {
+            color: #007bff;
+            font-weight: bold;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+        input {
+            padding: 8px;
+            margin: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Learning: DOM, Events & Async/Await</h1>
+    
+    <!-- DOM Manipulation Section -->
+    <div class="container">
+        <h2>1. DOM Manipulation</h2>
+        <p>DOM = Document Object Model - JavaScript can change HTML elements, attributes, styles, and content</p>
+        
+        <div id="app">
+            <div class="box" id="box1">Box 1 - Click buttons to manipulate me!</div>
+            <div class="box" id="box2">Box 2</div>
+            <div class="box" id="box3">Box 3</div>
+        </div>
+        
+        <button id="changeTextBtn">Change Text</button>
+        <button id="changeColorBtn">Change Color</button>
+        <button id="addClassBtn">Add Highlight Class</button>
+        <button id="removeClassBtn">Remove Highlight</button>
+        <button id="createElementBtn">Create New Element</button>
+        <button id="removeElementBtn">Remove Last Box</button>
+    </div>
+
+    <!-- Events Section -->
+    <div class="container">
+        <h2>2. Event Handling</h2>
+        <p>Events are actions that happen in the browser (clicks, keypresses, mouse movements, etc.)</p>
+        
+        <input type="text" id="textInput" placeholder="Type something...">
+        <p id="inputDisplay">You typed: <span id="typedText">Nothing yet</span></p>
+        
+        <button id="clickMeBtn">Click Increment!</button>
+        <button id="clickdec"> Click Decrement!</button>
+        <p id="clickCount">Click count: 0</p>
+        
+        <div id="mouseArea" style="padding: 20px; background: #e9ecef; border-radius: 4px; margin: 10px 0;">
+            Move your mouse here to see coordinates
+            <p id="mouseCoords">X: 0, Y: 0</p>
+        </div>
+    </div>
+
+    <!-- Async/Await Section -->
+    <div class="container">
+        <h2>3. Async/Await</h2>
+        <p>Async/await makes it easier to work with promises and asynchronous operations</p>
+        
+        <button id="fetchUsersBtn">Fetch Users (Async/Await)</button>
+        <button id="fetchWithDelayBtn">Fetch with Delay (Simulate API)</button>
+        <button id="multipleRequestsBtn">Multiple Async Requests</button>
+        
+        <div id="resultArea">
+            <p id="status">Ready to fetch data...</p>
+            <ul id="userList"></ul>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
