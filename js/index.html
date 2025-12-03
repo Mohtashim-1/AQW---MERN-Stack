@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .marquee {
+      width: 100%;
+      overflow: hidden;
+      background: #f5f5f5;
+      padding: 8px 0;
+    }
+    
+    .marquee-content {
+      display: inline-block;
+      white-space: nowrap;
+      animation: marqueeScroll 12s linear infinite;
+    }
+    
+    /* Pause on hover */
+    .marquee:hover .marquee-content {
+      animation-play-state: paused;
+    }
+    
+    @keyframes marqueeScroll {
+      0%   { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    </style>
+<body>
+    
+    <div class="marquee">
+        <div class="marquee-content">
+          🚀 Welcome to CodeCrest Solutions — ERPNext | Odoo | SaaS | Custom Development
+        </div>
+      </div>
+
+
+      
+
+    <script src="app.js"></script>
+</body>
+</html>

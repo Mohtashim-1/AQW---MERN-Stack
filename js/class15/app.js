@@ -36,11 +36,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const box3 = document.getElementById('box3');
 
+    
 
-    const boxes = document.getElementsByClassName('box');
+
+    const boxes = document.getElementsByClassName('box')
     console.log(boxes);
 
+    // Get elements by tag name (e.g., 'button', 'div', 'p', 'input')
+    // getElementsByTagName() returns a live HTMLCollection of all elements with that tag
+    const allButtons = document.getElementsByTagName('button');
+    console.log('All buttons found:', allButtons.length);
     
+    // Example: Change all button colors using tag name
+    document.getElementById('changeAllButtonsBtn').addEventListener('click', function() {
+        for (let btn of allButtons) {
+            btn.style.backgroundColor = '#28a745';
+            btn.style.color = 'white';
+        }
+        console.log(`Changed ${allButtons.length} buttons using getElementsByTagName('button')`);
+    });
     
     // Change text content
     // document.getElementById('changeTextBtn').addEventListener('click', function() {
@@ -48,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //     box1.textContent = 'Text changed! Current time: ' + new Date().toLocaleTimeString();
     //     console.log('Text changed using textContent');
     // });
+    
 
     document.getElementById('changeTextBtn').addEventListener('click', () =>{
         for(let box of boxes){
@@ -89,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Create new div element
         const newBox = document.createElement('div');
         newBox.className = 'box';
-        newBox.id = `box${boxCounter}`;
+        newBox.id = `box${boxCounter}`; // box4, box5, box6, etc.
         newBox.textContent = `Box ${boxCounter} - Created dynamically!`;
         
         // Add to parent element
@@ -244,49 +259,49 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Fetch users from JSONPlaceholder (free fake API)
-    async function fetchUsers() {
-        try {
-            statusElement.textContent = 'Loading...';
-            statusElement.className = 'loading';
-            userList.innerHTML = ''; // Clear previous results
-            
-            // await pauses execution until fetch completes
-            const response = await fetch('https://jsonplaceholder.typicode.com/users');
-            
-            // Check if response is OK
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+        async function fetchUsers() {
+            try {
+                statusElement.textContent = 'Loading...';
+                statusElement.className = 'loading';
+                userList.innerHTML = ''; // Clear previous results
+                
+                // await pauses execution until fetch completes
+                const response = await fetch('https://jsonplaceholder.typicode.com/users');
+                
+                // Check if response is OK
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                // await pauses until JSON parsing completes
+                const users = await response.json();
+                
+                // Update DOM with results
+                statusElement.textContent = `Fetched ${users.length} users successfully!`;
+                statusElement.className = '';
+                
+                for(let user of users){
+                    const li = document.createElement('li');
+                    li.textContent = `${user.name} - ${user.email}`;
+                    userList.appendChild(li);
+                }
+                // users.forEach(user => {
+                //     const li = document.createElement('li');
+                //     li.textContent = `${user.name} - ${user.email}`;
+                //     userList.appendChild(li);
+                // });
+                
+                console.log('Users fetched:', users);
+                return users;
+                
+            } catch (error) {
+                // Handle errors gracefully
+                // statusElement.textContent = `Error: ${error.message}`;
+                // statusElement.className = 'error';
+                console.error('Fetch error:', error,message);
             }
-            
-            // await pauses until JSON parsing completes
-            const users = await response.json();
-            
-            // Update DOM with results
-            statusElement.textContent = `Fetched ${users.length} users successfully!`;
-            statusElement.className = '';
-            
-            for(let user of users){
-                const li = document.createElement('li');
-                li.textContent = `${user.name} - ${user.email}`;
-                userList.appendChild(li);
-            }
-            users.forEach(user => {
-                const li = document.createElement('li');
-                li.textContent = `${user.name} - ${user.email}`;
-                userList.appendChild(li);
-            });
-            
-            console.log('Users fetched:', users);
-            return users;
-            
-        } catch (error) {
-            // Handle errors gracefully
-            statusElement.textContent = `Error: ${error.message}`;
-            statusElement.className = 'error';
-            console.error('Fetch error:', error);
         }
-    }
-    
+        
     // Button to fetch users
     document.getElementById('fetchUsersBtn').addEventListener('click', fetchUsers);
     
