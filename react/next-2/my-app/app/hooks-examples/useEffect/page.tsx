@@ -41,7 +41,7 @@ export default function UseEffectPage() {
   // Effect 5: Simulating API call
   useEffect(() => {
     const fetchData = async () => {
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      await new Promise(resolve => setTimeout(resolve, 5000))
       setData('Data loaded successfully! 🎉')
     }
     fetchData()

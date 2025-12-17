@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const chapters = [
-  { id: 'index', title: '📚 Table of Contents', path: '/hooks-examples' },
+  { id: 'index', title: ' Table of Contents', path: '/hooks-examples' },
   { id: 'useState', title: 'Chapter 1: useState', path: '/hooks-examples/useState' },
   { id: 'useEffect', title: 'Chapter 2: useEffect', path: '/hooks-examples/useEffect' },
   { id: 'useContext', title: 'Chapter 3: useContext', path: '/hooks-examples/useContext' },
@@ -14,8 +14,8 @@ const chapters = [
   { id: 'useReducer', title: 'Chapter 7: useReducer', path: '/hooks-examples/useReducer' },
   { id: 'custom-hooks', title: 'Chapter 8: Custom Hooks', path: '/hooks-examples/custom-hooks' },
   { id: 'nextjs-concepts', title: 'Chapter 9: Next.js Concepts', path: '/hooks-examples/nextjs-concepts' },
-  { id: 'exercises', title: '📝 Exercises', path: '/hooks-examples/exercises' },
-  { id: 'solutions', title: '✅ Solutions', path: '/hooks-examples/solutions' },
+  { id: 'exercises', title: 'Exercises', path: '/hooks-examples/exercises' },
+  { id: 'solutions', title: ' Solutions', path: '/hooks-examples/solutions' },
 ]
 
 export default function Navigation() {
@@ -30,7 +30,7 @@ export default function Navigation() {
             href="/hooks-examples" 
             className="px-4 py-2 bg-white text-blue-600 rounded hover:bg-blue-50 transition"
           >
-            🏠 Home
+             Home
           </Link>
         </div>
         <div className="flex flex-wrap gap-2">

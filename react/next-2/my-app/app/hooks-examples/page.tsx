@@ -85,32 +85,32 @@ export default function HooksExamplesIndex() {
       <div className="container mx-auto max-w-6xl p-8">
         {/* Hero Section */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">
-            📚 Complete React & Next.js Learning Guide
-          </h1>
-          <p className="text-xl text-gray-700 mb-6 max-w-3xl mx-auto">
+          {/* <h1 className="text-5xl font-bold text-gray-900 mb-4">
+            Complete React & Next.js Learning Guide
+          </h1> */}
+          {/* <p className="text-xl text-gray-700 mb-6 max-w-3xl mx-auto">
             A comprehensive, step-by-step guide designed for students. Learn React Hooks and Next.js 
             through interactive examples, clear explanations, and hands-on practice.
-          </p>
+          </p> */}
           <div className="flex justify-center gap-4">
             <Link 
               href="/hooks-examples/exercises"
               className="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-semibold"
             >
-              📝 Start Exercises
+              Start Exercises
             </Link>
             <Link 
               href="/hooks-examples/useState"
               className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-semibold"
             >
-              🚀 Start Learning
+              Start Learning
             </Link>
           </div>
         </div>
 
         {/* How to Use This Guide */}
         <div className="bg-white rounded-lg shadow-lg p-6 mb-8 border-l-4 border-blue-500">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">📖 How to Use This Guide</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">How to Use This Guide</h2>
           <div className="grid md:grid-cols-2 gap-4">
             <div>
               <h3 className="font-semibold text-lg mb-2">For Students:</h3>
