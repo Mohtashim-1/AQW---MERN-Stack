@@ -7,7 +7,8 @@ async function connectDB() {
   try {
     // Get the MongoDB connection string from environment variables
     // This is like the address to find our database
-    const MONGODB_URI = 'mongodb://localhost:27017';
+    // If not in .env.local, use default with explicit database name "ecommerce"
+    const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/ecommerce';
 
     // If we don't have a connection string, show an error
     // if (!MONGODB_URI) {

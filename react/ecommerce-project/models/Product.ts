@@ -38,7 +38,7 @@ const ProductSchema = new Schema(
   {
     // This automatically adds createdAt and updatedAt fields
     timestamps: true,
-  }
+  }   
 );
 
 // Create the Product model

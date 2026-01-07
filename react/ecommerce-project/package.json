@@ -7,7 +7,10 @@
     "dev:turbo": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "view-products": "node scripts/view-products.js",
+    "find-db": "node scripts/find-products-db.js",
+    "migrate-db": "node scripts/migrate-to-ecommerce-db.js"
   },
   "dependencies": {
     "mongoose": "^9.1.2",
