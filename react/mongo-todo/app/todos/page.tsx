@@ -1,52 +1,81 @@
 'use client'
-import React from "react"
 import { useState, useEffect } from "react"
-import { NextResponse } from "next/server"
 
-interface Todo{
-    _id: string,
-    text: string,
-    date : string,
-    completed: boolean
+interface Todo {
+    _id: string
+    text: string
+    isCompleted: boolean
+    createdAt: string
 }
 
-
-const TestMongoPage = () => {
-    const [todos, setTodos] = useState<Todo[]>([]) 
+export default function TodosPage() {
+    const [todos, setTodos] = useState<Todo[]>([])
     const [inputText, setInputText] = useState('')
-    const [filter, setFilter] = useState<'all' | 'completed' | 'pending'> ('all')
     const [loading, setLoading] = useState(false)
 
-    useEffect(()=>{
+    useEffect(() => {
         fetchTodos()
-    },[])
+    }, [])
 
-    // Simple ()
-    // Curly {}
-    // Square []
-
-    const fetchTodos = async ()=>{
-        try{
+    const fetchTodos = async () => {
+        try {
             setLoading(true)
-            const response = await fetch('/api/todos',{
-                method: 'GET',
-                headers:{
-                    'content-type': 'application/json'
-                }
-            })
-
+            const response = await fetch('/api/todos')
             const data = await response.json()
-
-            return NextResponse.json(data, {status: 200})
-
-        }catch(error){
-            console.log("Failed to fetch todos from db", error)
+            setTodos(data)
+        } catch (error) {
+            console.error("Failed to fetch todos", error)
+        } finally {
+            setLoading(false)
         }
     }
 
-  return (
-    <div>page</div>
-  )
-}
+    const createTodo = async () =>{
+        if(!inputText.trim()) return
 
-export default TestMongoPage
+        try{
+            const response = await fetch('/api/todos',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({text: inputText})
+            })
+
+            if (response.ok){
+                setInputText('')
+                fetchTodos()
+            }
+
+        }catch(error){
+            console.error("Failed to create todo", error)
+        }
+    }
+
+
+    return (
+        <div>
+            <h1>Todos</h1>
+
+            <input type="text" value={inputText} 
+            onChange={(e) => setInputText(e.target.value)} 
+            onKeyPress={ (e) => e.key === "Enter" && createTodo()} placeholder="Add Todo" />
+            <button onClick={createTodo}>Add Todo</button>
+
+            {loading ? <p>Loading</p>: (
+                <ul>
+                    {todos.map((todo)=>(
+                        <li key={todo._id}>
+                            {todo._id} | 
+                            {todo.text} | 
+                             {todo.createdAt} | 
+                            {todo.isCompleted} 
+
+                        </li>
+                    ))}
+                </ul>
+            )}
+            
+        </div>
+    )
+}

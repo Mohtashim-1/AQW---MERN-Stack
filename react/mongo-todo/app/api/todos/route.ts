@@ -1,17 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import clientPromise from "@/lib/mongodb";
-import { error } from "console";
 
 export async function GET(){
     try{
         const client = await clientPromise;
         const db = client.db('todoapp')
-        const todos = await db.collection('todos')
+        const todos = await db.collection('todos').find({}).toArray()
 
         return NextResponse.json(todos)
 
-    }catch{
-        console.log("Error", error)
+    }catch(error){
+        console.error("Error", error)
+        return NextResponse.json({ error: "Failed to fetch todos" }, { status: 500 })
     }
 }
 
@@ -25,8 +25,8 @@ export async function POST(request: NextRequest){
 
     const text = body.text
 
-    if(!text || text.trim === ""){
-        return NextResponse.json("Todos shouldn't be empty")
+    if(!text || text.trim() === ""){
+        return NextResponse.json({ error: "Todos shouldn't be empty" }, { status: 400 })
     }
 
     const client = await clientPromise
@@ -38,13 +38,14 @@ export async function POST(request: NextRequest){
     const insertedTodo = {
         text: body.text,
         isCompleted: false,
-        createdAt : new Date().toISOString  
+        createdAt : Date.now() 
     }
 
-    const result = db.collection('todos').insertOne(insertedTodo)
+    const result = await db.collection('todos').insertOne(insertedTodo)
+    
 
     const createdTodo = {
-        id : (await result).insertedId.toString,
+        id : result.insertedId.toString(),
         ...insertedTodo
     }
 
@@ -54,6 +55,7 @@ export async function POST(request: NextRequest){
 
     }catch(error){
         console.error("Error", error)
+        return NextResponse.json({ error: "Failed to create todo" }, { status: 500 })
     }
 
 }

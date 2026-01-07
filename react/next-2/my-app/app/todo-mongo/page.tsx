@@ -24,14 +24,18 @@ export default function TodoMongoApp() {
     try {
       setLoading(true)
       setError(null)
-      const response = await fetch('/api/todos')
+      const response = await fetch('/api/todos', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
       
-      if (!response.ok) {
-        throw new Error('Failed to fetch todos')
-      }
+      
       
       const data = await response.json()
       setTodos(data)
+
     } catch (err) {
       console.error('Error fetching todos:', err)
       setError('Failed to load todos. Please check your MongoDB connection.')
@@ -68,6 +72,11 @@ export default function TodoMongoApp() {
       }
 
       const newTodo = await response.json()
+      // const a = [1,3]
+      // const b = [3,4]
+      // const c = [...a, ...b]
+      // c = [1,3,4]
+      
       setTodos([newTodo, ...todos])
       setInputText('')
     } catch (err) {
@@ -82,6 +91,7 @@ export default function TodoMongoApp() {
 
     try {
       setError(null)
+      // mongodb://localhost:27017/todoapp/api/todos/69481bf52576fb944ed542ad
       const response = await fetch(`/api/todos/${id}`, {
         method: 'PUT',
         headers: {
@@ -95,7 +105,11 @@ export default function TodoMongoApp() {
       }
 
       const updatedTodo = await response.json()
-      setTodos(todos.map(t => (t._id === id ? updatedTodo : t)))
+      setTodos(todos.map(t => 
+        // if the id of the todo is the same as the id of the todo to update, 
+        // return the updated todo, otherwise return the todo
+        (t._id === id ? updatedTodo : t)
+      ))
     } catch (err) {
       console.error('Error updating todo:', err)
       setError('Failed to update todo. Please try again.')
